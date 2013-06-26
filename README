@@ -17,7 +17,22 @@ Kendall's tau ~10 - 15min .
 
 Note for kmeans, npass = 5, kmedoids npass=1
 ncluster=10 for both.  
+---------------------------------------------
+Wed Jun 26 09:55:40 EDT 2013
+start using pycluster for hierarchical clustering. 
+The eculidean distance isn't good, ncluster = 10, there is only one super large cluster. 
+use spearman's R: 
+method s: not good, skew. 
+m: pretty good, no skew.
+a: minor skew, there are few large clusters.
 
+use kendall's tau:
+s: skew, one class is as large as ~2950
+m: not bad, no skew. 
+a: skew.
+
+obviously, spearman, kendall, with m: max linkage is the best. 
+I also did ward linkage using scikit toolbox. the performace is also no-skew.
 
 
 
