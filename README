@@ -1,0 +1,23 @@
+Sat Jun 22 21:32:59 EDT 2013
+In data_capture.py: I read ticker symbols from the Yahoo finance, then save them into local files, i.e. valid_labels, valid_prices.
+parameters might be changed: startdate, stopdate, numberofprices.
+
+In data_process.py: I randomly plot N stock markets and their labels, save to local .png image.two images, ...before... and ...after... shows the effect of normalization. 
+Be cautious that some data are entirely 0s, which caused me some trouble when I normalize
+
+---------------------------------------------
+Sun Jun 23 09:26:40 EDT 2013
+add kmeans_euclidean() function that groups prices based on the euclidean distance. 
+---------------------------------------------
+Tue Jun 25 22:03:03 EDT 2013
+With the help of pycluster, three metrics for both kmeans and kmedoids: 
+euclidean ~30s 
+spearman's R ~3-4min 
+Kendall's tau ~10 - 15min . 
+
+Note for kmeans, npass = 5, kmedoids npass=1
+ncluster=10 for both.  
+
+
+
+
