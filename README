@@ -35,4 +35,5 @@ obviously, spearman, kendall, with m: max linkage is the best.
 I also did ward linkage using scikit toolbox. the performace is also no-skew.
 
 
-
+Wed Jun 26 23:05:05 EDT 2013
+change the structure of code, now they run in a loop through all the methods
