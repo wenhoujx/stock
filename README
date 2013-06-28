@@ -1,3 +1,15 @@
+structure of the project: 
+utilfuns/ 
+    data_capture : load data from Yahoo finance. 
+    data_processing : load from file and normalization .
+    plot_eachclass : plot 30 prices from each clusters.
+pycluster_clustering/
+    kmeans.py
+    kmedoids.py
+    tree.py
+    som.p!
+Fri Jun 28 09:18:10 EDT 2013
+---------------------------------------------
 Sat Jun 22 21:32:59 EDT 2013
 In data_capture.py: I read ticker symbols from the Yahoo finance, then save them into local files, i.e. valid_labels, valid_prices.
 parameters might be changed: startdate, stopdate, numberofprices.

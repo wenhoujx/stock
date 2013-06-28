@@ -1,30 +1,11 @@
-from collections import Counter
+# from collections import Counter
 import numpy as np 
-import utils.data_processing as dp
+import utilfuns.data_processing as dp
 import Pycluster as pycl
-import itertools as it
-import matplotlib.pyplot as plt
+from utilfuns.plot_eachclass import plot_eachclass
+# import itertools as it
+# import matplotlib.pyplot as plt
 
-def plot_eachclass(prices, clusterid, folderpath): 
-    colors = it.cycle( 'bgrcmykw') 
-    linestyles = it.cycle('_-:') 
-
-    plt.figure()
-    for iter_count, (i, _) in enumerate(Counter(clusterid).most_common()):
-        pr_class_i = prices[ np.where(clusterid == i)]
-        # plot at most 30 prices for each class
-        N = 30
-        if N > pr_class_i.shape[0]:
-            N = pr_class_i.shape[0]
-        prN = pr_class_i[np.random.randint(0,pr_class_i.shape[0], N)] 
-        plt.subplot(3,3,iter_count+1)
-        for y, c, ls in zip(prN, colors, linestyles):
-            plt.plot(xrange(len(y)),  y, c=c, ls=ls)
-        plt.title( '%i of %i plotted' %(N, pr_class_i.shape[0]))
-    # make sure the titles and xaxis don't overlap
-    plt.tight_layout()
-    plt.savefig(folderpath, dpi=200)
-    plt.show()
 
 if __name__ == '__main__':
     prices , tickers = dp.loaddata()
@@ -80,4 +61,24 @@ if __name__ == '__main__':
             clusterid = tree.cut(nclusters)
             plot_eachclass( prices, clusterid, folderpath)
 
+# def plot_eachclass(prices, clusterid, folderpath): 
+#     colors = it.cycle( 'bgrcmykw') 
+#     linestyles = it.cycle('_-:') 
+# 
+#     plt.figure()
+#     for iter_count, (i, _) in enumerate(Counter(clusterid).most_common()):
+#         pr_class_i = prices[ np.where(clusterid == i)]
+#         # plot at most 30 prices for each class
+#         N = 30
+#         if N > pr_class_i.shape[0]:
+#             N = pr_class_i.shape[0]
+#         prN = pr_class_i[np.random.randint(0,pr_class_i.shape[0], N)] 
+#         plt.subplot(3,3,iter_count+1)
+#         for y, c, ls in zip(prN, colors, linestyles):
+#             plt.plot(xrange(len(y)),  y, c=c, ls=ls)
+#         plt.title( '%i of %i plotted' %(N, pr_class_i.shape[0]))
+#     # make sure the titles and xaxis don't overlap
+#     plt.tight_layout()
+#     plt.savefig(folderpath, dpi=200)
+#     plt.show()
 
